@@ -41,20 +41,20 @@ Check out the live application: [https://snapreviews.onrender.com](https://snapr
 
 The project follows a classic MVC pattern with clear separation of concerns:
 
-SnapReviews/  
-├── config/ - Configuration files  
-├── models/ - Database models  
-├── public/ - Static assets  
-│   ├── css/ - Stylesheets  
-│   ├── js/ - Client-side JavaScript  
-├── routes/ - Express routes  
-├── views/ - EJS templates  
-│   ├── businesses/ - Business-related views  
-│   ├── partials/ - Reusable view components  
-├── app.js - Application entry point  
-├── .env - Environment variables (not tracked)  
-├── package.json - Project dependencies  
-└── README.md - Project documentation  
+SnapReviews/
+- config/ - Configuration files
+- models/ - Database models
+- public/ - Static assets
+  - css/ - Stylesheets
+  - js/ - Client-side JavaScript
+- routes/ - Express routes
+- views/ - EJS templates
+  - businesses/ - Business-related views
+  - partials/ - Reusable view components
+- app.js - Application entry point
+- .env - Environment variables (not tracked)
+- package.json - Project dependencies
+- README.md - Project documentation  
 
 ## Local Development Setup
 
