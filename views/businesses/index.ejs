@@ -1,0 +1,111 @@
+<%- include('../partials/header') %>
+
+<h1 class="page-header">All Businesses</h1>
+
+<div class="mb-4">
+  <div class="row">
+    <div class="col-md-6">
+      <% if (locals.userRole === 'owner') { %>
+        <a href="/business/new" class="btn btn-primary mb-2">Add New Business</a>
+      <% } %>
+    </div>
+    <div class="col-md-6">
+      <div class="input-group">
+        <input type="text" id="search" class="form-control" placeholder="Search businesses..." onkeyup="searchBusinesses()">
+        <select id="sort" class="form-select" onchange="sortBusinesses()">
+          <option value="default">Sort by...</option>
+          <option value="a-z">Name: A-Z</option>
+          <option value="z-a">Name: Z-A</option>
+          <option value="high-low">Rating: High to Low</option>
+          <option value="low-high">Rating: Low to High</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% if (locals.userRole) { %>
+  <div class="alert alert-info mb-4">
+    You are currently browsing as: 
+    <strong><%= locals.userRole === 'owner' ? 'Business Owner' : 'Consumer' %></strong>
+    <a href="/" class="alert-link ms-2">Change role</a>
+  </div>
+<% } %>
+
+<div id="businesses-container" class="row">
+  <% if (businesses && businesses.length > 0) { %>
+    <% businesses.forEach(business => { %>
+      <div class="col-md-4 mb-4 business-item">
+        <div class="business-card h-100">
+          <h3>
+            <%= business.title %> 
+            <% if (business.averageRating > 0) { %>
+              <span class="star-rating">
+                <%= business.averageRating %> &#9733;
+              </span>
+            <% } %>
+          </h3>
+          <p><strong>Location:</strong> <%= business.location %></p>
+          <p><%= business.description.substring(0, 100) %>...</p>
+          <a href="/business/<%= business._id %>" class="btn btn-primary">View Details</a>
+        </div>
+      </div>
+    <% }) %>
+  <% } else { %>
+    <div class="col-12">
+      <p>No businesses found. Be the first to add one!</p>
+    </div>
+  <% } %>
+</div>
+
+<script>
+function searchBusinesses() {
+  const searchInput = document.getElementById('search').value.toLowerCase();
+  const businesses = document.querySelectorAll('.business-item');
+  
+  businesses.forEach(business => {
+    const title = business.querySelector('h3').textContent.toLowerCase();
+    const location = business.querySelector('p strong').nextSibling.textContent.toLowerCase();
+    const description = business.querySelectorAll('p')[1].textContent.toLowerCase();
+    
+    if (title.includes(searchInput) || location.includes(searchInput) || description.includes(searchInput)) {
+      business.style.display = '';
+    } else {
+      business.style.display = 'none';
+    }
+  });
+}
+
+function sortBusinesses() {
+  const sortOption = document.getElementById('sort').value;
+  const container = document.getElementById('businesses-container');
+  const businesses = Array.from(container.querySelectorAll('.business-item'));
+  
+  businesses.sort((a, b) => {
+    const titleA = a.querySelector('h3').textContent.trim();
+    const titleB = b.querySelector('h3').textContent.trim();
+    
+    const ratingA = a.querySelector('.star-rating') ? 
+      parseFloat(a.querySelector('.star-rating').textContent) : 0;
+    const ratingB = b.querySelector('.star-rating') ? 
+      parseFloat(b.querySelector('.star-rating').textContent) : 0;
+    
+    switch(sortOption) {
+      case 'a-z':
+        return titleA.localeCompare(titleB);
+      case 'z-a':
+        return titleB.localeCompare(titleA);
+      case 'high-low':
+        return ratingB - ratingA;
+      case 'low-high':
+        return ratingA - ratingB;
+      default:
+        return 0;
+    }
+  });
+  
+  businesses.forEach(business => container.appendChild(business));
+}
+</script>
+
+<%- include('../partials/footer') %>

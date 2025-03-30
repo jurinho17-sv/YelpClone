@@ -1,0 +1,169 @@
+/* Snap's color scheme */
+
+:root {
+    --snap-yellow: #fffc00;
+    --snap-white: #ffffff;
+    --snap-black: #000000;
+    --snap-gray: #f2f2f2;
+  }
+  
+  body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: var(--snap-white);
+    color: var(--snap-black);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+  .container {
+    flex: 1 0 auto;
+  }
+  
+  footer {
+    flex-shrink: 0;
+    margin-top: auto;
+    background-color: #000000;
+    color: #ffffff;
+    padding: 1rem 0;
+    text-align: center;
+  }
+  
+  .navbar {
+    background-color: var(--snap-black) !important;
+  }
+  
+  .navbar-brand {
+    color: var(--snap-yellow) !important;
+    font-weight: bold;
+  }
+  
+  .navbar-dark .navbar-nav .nav-link {
+    color: var(--snap-white) !important;
+  }
+  
+  .btn-primary {
+    background-color: var(--snap-yellow);
+    color: var(--snap-black);
+    border: none;
+    font-weight: bold;
+  }
+  
+  .btn-primary:hover {
+    background-color: #e6e300; /* Slightly darker yellow */
+    color: var(--snap-black);
+  }
+  
+  .business-card {
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    background-color: var(--snap-white);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .star-rating {
+    color: var(--snap-yellow);
+  }
+  
+  .page-header {
+    border-bottom: 3px solid var(--snap-yellow);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+  }
+  
+  /* Form styling */
+  .form-control:focus {
+    border-color: var(--snap-yellow);
+    box-shadow: 0 0 0 0.25rem rgba(255, 252, 0, 0.25);
+  }
+  
+  /* Action buttons layout for responsive design */
+  .action-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  
+  @media (min-width: 576px) {
+    .action-buttons {
+      justify-content: flex-end;
+    }
+    
+    .action-buttons .btn {
+      flex: 0 0 auto;
+      width: auto;
+    }
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .business-card {
+      margin-bottom: 15px;
+    }
+    
+    .page-header {
+      font-size: 1.8rem;
+    }
+    
+    .navbar-brand {
+      font-size: 1.5rem;
+    }
+    
+    /* Adjust padding for mobile */
+    .container {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+    
+    /* Single column layout on mobile */
+    .business-item {
+      width: 100%;
+    }
+    
+    /* Better form layout on small screens */
+    .form-control, .btn {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    
+    .d-flex {
+      flex-direction: column;
+    }
+    
+    .d-flex .btn {
+      margin-right: 0 !important;
+    }
+  }
+  
+  /* Make sure images and content don't overflow */
+  img, video, iframe {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Improve readability on smaller screens */
+  @media (max-width: 576px) {
+    body {
+      font-size: 14px;
+    }
+    
+    h1 {
+      font-size: 1.8rem;
+    }
+    
+    h2 {
+      font-size: 1.5rem;
+    }
+    
+    h3 {
+      font-size: 1.2rem;
+    }
+  }

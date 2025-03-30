@@ -1,0 +1,33 @@
+{
+  "name": "yelpclone",
+  "version": "1.0.0",
+  "description": "A Yelp clone web application built with Node.js, Express, and MongoDB",
+  "main": "index.js",
+  "scripts": {
+  "start": "node app.js",
+  "dev": "nodemon app.js"
+},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jurinho17-sv/YelpClone.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jurinho17-sv/YelpClone/issues"
+  },
+  "homepage": "https://github.com/jurinho17-sv/YelpClone#readme",
+  "dependencies": {
+    "dotenv": "^16.4.7",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1",
+    "method-override": "^3.0.0",
+    "mongodb": "^6.15.0",
+    "mongoose": "^8.13.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}
