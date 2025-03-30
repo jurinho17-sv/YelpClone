@@ -1,4 +1,12 @@
-// models/business.js
+/**
+ * Business Model
+ * 
+ * Defines the schema for businesses in the application.
+ * Includes fields for basic business information and references to reviews.
+ * The averageRating field is calculated when reviews are added or removed.
+*/
+
+
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
@@ -20,14 +28,14 @@ const BusinessSchema = new Schema({
     type: Date,
     default: Date.now
   },
-  // Reference to reviews
+  // Reference to reviews using MongoDB's document references
   reviews: [
     {
       type: Schema.Types.ObjectId,
       ref: 'Review'
     }
   ],
-  // Average rating for sorting and filtering
+  // pre-calculated average rating for efficient sorting and filtering
   averageRating: {
     type: Number,
     default: 0

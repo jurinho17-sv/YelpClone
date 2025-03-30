@@ -1,10 +1,29 @@
-// routes/businesses.js
+/**
+ * Business Routes
+ * 
+ * This file contains all routes related to business management:
+ * - listing all businesses
+ * - creating new businesses
+ * - viewing individual businesses
+ * - updating existing busineses
+ * - deleting businesses
+ * - managing reviews
+ * 
+ * The routes implement role-based access control for business owners and consumers.
+ */
+
 const express = require('express');
 const router = express.Router();
 const Business = require('../models/business');
 const Review = require('../models/review');
 
-// Middleware to check role
+/**
+ * Role Checking Middleware
+ * 
+ * Determines the user's role (owner or consumer) from query parameters
+ * or session data and makes it available to route handlers and templates.
+ */
+
 const checkRole = (req, res, next) => {
   // Get role from query parameter or session
   const role = req.query.role || req.session?.role || 'consumer';
@@ -23,7 +42,10 @@ const checkRole = (req, res, next) => {
 // Apply middleware to all routes
 router.use(checkRole);
 
-// GET - Display all businesses
+/**
+ * GET /business
+ * lists all businesses with optional sorting and filtering
+ */
 router.get('/', async (req, res) => {
   try {
     const businesses = await Business.find({}).sort({ createdAt: 'desc' });
@@ -37,7 +59,11 @@ router.get('/', async (req, res) => {
   }
 });
 
-// GET - Display form to create new business
+/**
+ * GET /business/new
+ * displays form to create a new business
+ * restricted to owner role
+ */
 router.get('/new', (req, res) => {
   if (res.locals.userRole !== 'owner') {
     return res.redirect('/business?role=owner');

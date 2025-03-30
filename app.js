@@ -1,8 +1,20 @@
 /**
- * SnapReviews - A YelpClone web application for S
- * */
+ * SnapReviews - A YelpClone web application for Snap Engineering Academy
+ * 
+ * This is a customized version of a web application
+ * I developed during my time at Atom Tech Solutions,
+ * restyled specifically for my Snap Engineering Academy application
+ * 
+ * Main entry point that configures:
+ * - Express server and middleware
+ * - MongoDB connection
+ * - Template engine
+ * - Routes
+ * - Static file serving
+ * - Database seeding
+ */
 
-// app.js
+// core dependencies
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
@@ -19,14 +31,14 @@ connectDB();
 // Initialize Express
 const app = express();
 
-// Body Parser Middleware
+// Body Parser Middleware - pare URL-encoded and jSON request bodies
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Method Override Middleware (for PUT and DELETE requests)
 app.use(methodOverride('_method'));
 
-// Session Middleware
+// Session Middleware - manage user sessions for role-based access
 app.use(session({
   secret: 'snapreviewssecret',
   resave: false,
@@ -34,7 +46,7 @@ app.use(session({
   cookie: { maxAge: 60 * 60 * 1000 } // 1 hour
 }));
 
-// Set static folder
+// Static file middleware - Serve files from the public directory
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Set EJS as template engine
@@ -47,22 +59,28 @@ const businessRoutes = require('./routes/businesses');
 // Use routes
 app.use('/business', businessRoutes);
 
-// Updated route for homepage
+// Homepage route - Renders the main landing page (Mar 29th)
 app.get('/', (req, res) => {
   res.render('home');
 });
 
-// Import the Business model
+// Import the Business model for database seeding
 const Business = require('./models/business');
 
-// Sample businesses in Santa Monica
+/**
+ * Database Seeding Functiuon
+ * 
+ * Checks if the database is empty and seeds it with initial
+ * smaple data including cafes and restaurants in Santa Monica.
+ * Only runs when no businesses exist in the database.
+ */
 const checkAndSeedDatabase = async () => {
   try {
     const count = await Business.countDocuments();
     if (count === 0) {
       console.log('No businesses found, adding sample businesses');
       
-      // Sample cafes
+      // Five sample cafes
       const cafes = [
         {
           title: 'Snap Cafe',
@@ -96,7 +114,7 @@ const checkAndSeedDatabase = async () => {
         }
       ];
       
-      // Sample restaurants
+      // Five sample restaurants
       const restaurants = [
         {
           title: 'Forma Restaurant & Cheese Bar',
