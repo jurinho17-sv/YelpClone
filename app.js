@@ -1,5 +1,5 @@
 /**
- * SnapReviews - A YelpClone web application for Snap Engineering Academy application
+ * SnapReviews - YelpClone targeted Santa Monica for Snap Engineering Academy application
  * 
  * This is a customized version of a web application
  * I developed during my time at Atom Tech Solutions,
@@ -176,7 +176,7 @@ async function resetDatabase() {
 
 // Start server
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server running on port ${PORT}`);
   checkAndSeedDatabase();
 });
