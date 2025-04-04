@@ -4,9 +4,9 @@
   "description": "A Yelp clone web application built with Node.js, Express, and MongoDB",
   "main": "index.js",
   "scripts": {
-  "start": "node app.js",
-  "dev": "nodemon app.js"
-},
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jurinho17-sv/YelpClone.git"
