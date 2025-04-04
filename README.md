@@ -7,17 +7,17 @@ This project was originally developed during my time at Atom Tech Solutions and 
 ## Screenshots
 
 ### Homepage
-![SnapReviews Homepage](screenshots/SnapReviews-homepage.png)
+![SnapReviews Homepage](screenshots/Homepage.png)
 
 ### Business Listings
-![Business Listings](screenshots/SnapReviews-listings.png)
+![Business Listings](screenshots/Listings.png)
 
 ### Business Details
-![Business Details](screenshots/SnapReviews-details.png)
+![Business Details](screenshots/Details.png)
 
 ## Live Demo
 
-Check out the live application: [https://snapreviews.onrender.com](https://snapreviews.onrender.com)
+Check out the live application: [https://snapreviews-2nd.onrender.com](https://snapreviews-2nd.onrender.com)
 
 *Since this application is hosted on Render's free tier, it may take up to 30 seconds if the app has been inactive. Thanks for your patience.*
 
