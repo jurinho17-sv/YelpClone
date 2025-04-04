@@ -1,7 +1,8 @@
 # SnapReviews - A Yelp Clone
 
-SnapReviews is designed for users to discover, review, and share local businesses in Santa Monica. 
 This project was originally developed during my time at Atom Tech Solutions and has been redesigned specifically for my Snap Engineering Academy application.
+
+**SnapReviews** is designed for users to discover, review, and share local businesses in Santa Monica.
 
 ## Screenshots
 

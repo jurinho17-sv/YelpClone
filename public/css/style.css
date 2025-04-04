@@ -70,7 +70,7 @@
   }
   
   .star-rating {
-    color: var(--snap-yellow);
+    color: #ffd700;  /* Using gold color for better visibility */
   }
   
   .page-header {

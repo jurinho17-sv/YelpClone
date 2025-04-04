@@ -1,9 +1,9 @@
 /**
- * SnapReviews - A YelpClone web application for Snap Engineering Academy
+ * SnapReviews - A YelpClone web application for Snap Engineering Academy application
  * 
  * This is a customized version of a web application
  * I developed during my time at Atom Tech Solutions,
- * restyled specifically for my Snap Engineering Academy application
+ * restyled specifically for my SEA application
  * 
  * Main entry point that configures:
  * - Express server and middleware

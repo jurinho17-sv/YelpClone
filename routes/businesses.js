@@ -1,7 +1,7 @@
 /**
  * Business Routes
  * 
- * This file contains all routes related to business management:
+ * This js file contains all routes related to business management:
  * - listing all businesses
  * - creating new businesses
  * - viewing individual businesses
